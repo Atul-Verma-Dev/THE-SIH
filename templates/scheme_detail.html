@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ scheme.name }} | SchemeAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="brand"><span>MarginFinds</span></a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/explore">Explore Schemes</a></li>
+                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/form" class="btn btn-primary nav-btn">Find My Schemes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>{{ scheme.name }}</h1>
+            <p class="subtitle">{{ scheme.full_name }}</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="glass-card" style="white-space: pre-wrap;">{{ elaboration | safe}}</div>
+
+            {% if scheme.link %}
+            <div class="text-center mt-5">
+                <a href="{{ scheme.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Visit Official Website &rarr;</a>
+            </div>
+            {% endif %}
+
+            <div class="text-center mt-3">
+                <a href="/form" class="btn btn-secondary">Back to Results</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 MarginFinds. Frontend Prototype.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

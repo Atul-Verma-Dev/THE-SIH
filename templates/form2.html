@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrepreneur Scheme Matching — Intake Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+
+  <div class="form-shell">
+
+    <!-- Left panel: context / branding -->
+    <aside class="form-side">
+      <p class="side-kicker">MSME &amp; Entrepreneurship schemes</p>
+      <h1>Tell us about yourself</h1>
+      <p class="subtitle">Answer a few questions and we'll match you with government schemes you're eligible for.</p>
+
+      <ul class="side-points">
+        <li>Takes about 2 minutes</li>
+        <li>No documents needed yet</li>
+        <li>Your details stay private</li>
+      </ul>
+    </aside>
+
+    <!-- Right panel: the actual form -->
+    <div class="form-main">
+
+      <!--
+        BACKEND CONNECTIVITY NOTE:
+        - action="/api/recommend" is where this form's data should be sent.
+          Replace with your real API base URL once deployed
+          (e.g. https://your-backend.onrender.com/api/recommend).
+        - method="POST" because we're submitting data, not just requesting a page.
+        - Right now this is a plain HTML form submit (page reload on submit).
+          To send this as JSON to a FastAPI backend without a page reload,
+          you'd normally intercept the "submit" event with JS and use fetch()
+          instead — that's a JS task, intentionally left out since this file
+          is HTML/CSS only as requested.
+      -->
+      <form action="/submit" method="POST" id="entrepreneur-form">
+
+        <fieldset class="form-section">
+          <legend>Personal details</legend>
+
+          <label for="full_name">Full Name</label>
+          <input type="text" id="full_name" name="full_name" placeholder="e.g. Ramesh Kumar" required>
+
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+            <option value="prefer_not_to_say">Prefer not to say</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Category &amp; eligibility</legend>
+
+          <label for="income">Annual Family Income</label>
+          <select id="income" name="income" required>
+            <option value="" disabled selected>Select income range</option>
+            <option value="below_1L">Below ₹1,00,000</option>
+            <option value="1L_2L">₹1,00,001 – ₹2,00,000</option>
+            <option value="2L_3L">₹2,00,001 – ₹3,00,000</option>
+            <option value="3L_5L">₹3,00,001 – ₹5,00,000</option>
+            <option value="5L_8L">₹5,00,001 – ₹8,00,000</option>
+            <option value="8L_12L">₹8,00,001 – ₹12,00,000</option>
+            <option value="above_12L">Above ₹12,00,000</option>
+          </select>
+
+          <label for="caste">Caste Category</label>
+          <select id="caste" name="caste" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="general">General</option>
+            <option value="obc">OBC</option>
+            <option value="sc">SC</option>
+            <option value="st">ST</option>
+          </select>
+
+          <label for="disability">Disability Status</label>
+          <select id="disability" name="disability" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="none">No disability</option>
+            <option value="physical">Physical disability</option>
+            <option value="visual">Visual impairment</option>
+            <option value="hearing">Hearing impairment</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label>Do you hold a BPL (Below Poverty Line) Card?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="bpl_card" value="yes" required> Yes
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="bpl_card" value="no"> No
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Business details</legend>
+
+          <label for="business_type">Business Type</label>
+          <select id="business_type" name="business_type" required>
+            <option value="" disabled selected>Select business type</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="retail">Retail / Trading</option>
+            <option value="services">Services</option>
+          </select>
+
+          <label for="state">State</label>
+          <select id="state" name="state" required>
+            <option value="" disabled selected>Select state</option>
+            <option value="andhra_pradesh">Andhra Pradesh</option>
+            <option value="arunachal_pradesh">Arunachal Pradesh</option>
+            <option value="assam">Assam</option>
+            <option value="bihar">Bihar</option>
+            <option value="chhattisgarh">Chhattisgarh</option>
+            <option value="goa">Goa</option>
+            <option value="gujarat">Gujarat</option>
+            <option value="haryana">Haryana</option>
+            <option value="himachal_pradesh">Himachal Pradesh</option>
+            <option value="jharkhand">Jharkhand</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="kerala">Kerala</option>
+            <option value="madhya_pradesh">Madhya Pradesh</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="manipur">Manipur</option>
+            <option value="meghalaya">Meghalaya</option>
+            <option value="mizoram">Mizoram</option>
+            <option value="nagaland">Nagaland</option>
+            <option value="odisha">Odisha</option>
+            <option value="punjab">Punjab</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="sikkim">Sikkim</option>
+            <option value="tamil_nadu">Tamil Nadu</option>
+            <option value="telangana">Telangana</option>
+            <option value="tripura">Tripura</option>
+            <option value="uttar_pradesh">Uttar Pradesh</option>
+            <option value="uttarakhand">Uttarakhand</option>
+            <option value="west_bengal">West Bengal</option>
+          </select>
+
+          <label>Location Type</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="location" value="urban" required> Urban
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="location" value="rural"> Rural
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Find My Scheme</button>
+      </form>
+    </div>
+  </div>
+
+  <!--
+    RESERVED FOR BACKEND INTEGRATION (intentionally left empty/commented):
+    When you're ready to connect this to the FastAPI backend from earlier
+    without a full page reload, a <script> tag would go here containing
+    something like:
+
+      document.getElementById('entrepreneur-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const payload = Object.fromEntries(formData.entries());
+        const response = await fetch('/api/recommend', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        // then display result.reason, result.name etc. on the page
+      });
+
+    Left out here since this file is HTML/CSS only, per your request.
+  -->
+
+</body>
+</html>

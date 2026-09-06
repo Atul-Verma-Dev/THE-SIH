@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Matches | MarginFinds</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="brand"><span>MarginFinds</span></a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/explore">Explore Schemes</a></li>
+                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/form" class="btn btn-primary nav-btn">Find My Schemes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container text-center">
+            <h1>Schemes Matched To {{ profile.full_name or "You" }}</h1>
+            <p class="subtitle max-w-700">Based on what you shared, here are schemes that may be relevant. Always verify
+                current eligibility on the official portal before applying.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            {% if matches %}
+            <div class="grid-3">
+                {% for scheme in matches %}
+                <div class="glass-card scheme-card">
+                    <div class="scheme-tags">
+                        <span class="tag">{{ scheme.gender | title }}</span>
+                        <span class="tag">{{ scheme.caste | title }}</span>
+                        <span class="tag">{{ scheme.business_type | title }}</span>
+                    </div>
+
+                    <h3>{{ scheme.name }}</h3>
+                    <p class="scheme-fullname">{{ scheme.description }}</p>
+
+                    <div class="match-item">
+                        <div class="match-info">
+                            <span class="match-percent">{{ scheme.match_percent }}% Potential Match</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: {{ scheme.match_percent }}%"></div>
+                        </div>
+                    </div>
+
+                    <a href="/scheme/{{ scheme.id }}?sub={{ submission_id }}"
+                       class="btn btn-secondary mt-3">Learn More</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="glass-card text-center">
+                <p>We couldn't find a strong match right now based on your answers.</p>
+                <a href="/explore" class="btn btn-primary mt-3">Explore All Schemes</a>
+            </div>
+            {% endif %}
+
+            <div class="text-center mt-5">
+                <a href="/form" class="btn btn-secondary">Edit My Details</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 MarginFinds.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

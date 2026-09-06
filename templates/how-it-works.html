@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works | SchemeAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">Scheme<span>AI</span></a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore Schemes</a></li>
+                <li><a href="how-it-works.html" class="active">How It Works</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="form.html" class="btn btn-primary nav-btn">Find My Schemes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container text-center">
+            <h1>How The Platform Works</h1>
+            <p class="subtitle">Understanding the future recommendation process.</p>
+        </div>
+    </section>
+
+    <section class="section timeline-section">
+        <div class="container">
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Step 1 — Tell Us About Yourself</h3>
+                        <p>The entrepreneur provides relevant information regarding their business, background, and specific needs through our comprehensive intake form.</p>
+                        <a href="form.html" class="btn btn-primary mt-2">Start the Form</a>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="glass-card timeline-content">
+                        <div class="badge">Future AI Functionality</div>
+                        <h3>Step 2 — Understand Your Needs</h3>
+                        <p>The future system will interpret vital information collected from the form, such as:</p>
+                        <ul class="feature-list mt-2">
+                            <li>Business type & industry</li>
+                            <li>Location (Urban/Rural/State)</li>
+                            <li>Business stage (Idea/Early/Established)</li>
+                            <li>Entrepreneur category (Women, SC/ST, General, etc.)</li>
+                            <li>Funding & Support requirements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="glass-card timeline-content">
+                        <div class="badge">Future AI Functionality</div>
+                        <h3>Step 3 — Identify Relevant Schemes</h3>
+                        <p>The future recommendation engine will process the profile data and cross-reference it against an updated database of available government schemes, looking for strong potential alignments.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Step 4 — Explore Recommendations</h3>
+                        <p>The entrepreneur will see potentially relevant schemes ranked by relevance. This allows for focused exploration rather than searching blindly through hundreds of policies.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Step 5 — Verify & Apply</h3>
+                        <p>Users should <strong>always verify</strong> the current eligibility criteria, documentation required, and the official application process using official government sources and portals. Our platform aids discovery, not final approval.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Scheme<span>AI</span></h3>
+                    <p>Empowering Entrepreneurs.<br>Unlocking Opportunities.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore.html">Explore Schemes</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="form.html" class="highlight-link">Find My Schemes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer">
+                    <h4>Important Disclaimer</h4>
+                    <p>Scheme information shown on this prototype is for demonstration and educational purposes. Scheme eligibility, benefits, application processes and availability may change. Users should verify current information through official government sources before applying.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SchemeAI. Frontend Prototype.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

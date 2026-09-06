@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchemeAI | Empowering Entrepreneurs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="brand">
+                <span>MarginFinds</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/explore">Explore Schemes</a></li>
+                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/form" class="btn btn-primary nav-btn">Find My Schemes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Find Schemes That Fit Your Entrepreneurial Journey.</h1>
+                <p>Discover government schemes and support programs that may be relevant to your business, background, location and funding needs.</p>
+                <div class="hero-btns">
+                    <a href="/form" class="btn btn-primary">Find My Schemes</a>
+                    <a href="/explore" class="btn btn-secondary">Explore Schemes</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="glass-card mockup-card top-card">
+                    <div class="mockup-header">ENTREPRENEUR PROFILE</div>
+                    <div class="mockup-grid">
+                        <div><span class="label">Business</span><br>Small Manufacturing</div>
+                        <div><span class="label">Location</span><br>Maharashtra</div>
+                        <div><span class="label">Business Stage</span><br>Early Stage</div>
+                        <div><span class="label">Support Needed</span><br>Finance + Equipment</div>
+                    </div>
+                </div>
+                
+                <div class="mockup-connecting">
+                    <div class="pulse-dot"></div>
+                    <span>Analyzing requirements...</span>
+                </div>
+
+                <div class="glass-card mockup-card bottom-card">
+                    <div class="mockup-header">SCHEME MATCHING (DEMO)</div>
+                    <div class="match-item">
+                        <div class="match-info">
+                            <span class="match-percent">94% Potential Match</span>
+                            <span class="match-name">PMEGP</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 94%"></div></div>
+                    </div>
+                    <div class="match-item">
+                        <div class="match-info">
+                            <span class="match-percent">89% Potential Match</span>
+                            <span class="match-name">MUDRA</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 89%"></div></div>
+                    </div>
+                    <div class="match-item">
+                        <div class="match-info">
+                            <span class="match-percent">84% Potential Match</span>
+                            <span class="match-name">Stand-Up India</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 84%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section problem-section">
+        <div class="container">
+            <h2 class="section-title">Finding Support Shouldn't Be This Difficult</h2>
+            <div class="grid-4">
+                <div class="glass-card feature-card">
+                    <h3>Information Overload</h3>
+                    <p>Government support is spread across multiple schemes and platforms, making it hard to navigate.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <h3>Complex Eligibility</h3>
+                    <p>Each scheme can have different eligibility requirements and specific criteria.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <h3>Limited Awareness</h3>
+                    <p>Entrepreneurs may not know which programs exist or where to look to find them.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <h3>Wrong Fit</h3>
+                    <p>Finding a scheme is not enough — entrepreneurs need to identify options relevant to their circumstances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section approach-section">
+        <div class="container">
+            <h2 class="section-title">From Information Overload to Relevant Opportunities</h2>
+            <div class="flow-container">
+                <div class="flow-step">Entrepreneur</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step highlight-step"><a href="/form">Business & Personal Details</a></div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Profile Understanding</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Scheme Matching</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Potentially Relevant Schemes</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step final-step">Explore & Verify Eligibility</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section">
+        <div class="container text-center">
+            <div class="glass-card cta-card">
+                <h2>Not sure which schemes could help your business?</h2>
+                <p>Tell us a little about your entrepreneurial journey and explore government support programs that may be relevant to you.</p>
+                <a href="/form" class="btn btn-primary btn-large">Find My Schemes</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><span>MarginFinds</span></h3>
+                    <p>Empowering Entrepreneurs.<br>Unlocking Opportunities.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/explore">Explore Schemes</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/resources">Resources</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/form" class="highlight-link">Find My Schemes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer">
+                    <h4>Important Disclaimer</h4>
+                    <p>Scheme information shown on this prototype is for demonstration and educational purposes. Scheme eligibility, benefits, application processes and availability may change. Users should verify current information through official government sources before applying.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MarginFinds. Frontend Prototype.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
