@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
 </head>
-
 <body>
 
   <div class="form-shell">
@@ -116,16 +114,7 @@
             <option value="retail">Retail / Trading</option>
             <option value="services">Services</option>
           </select>
-          <!-- JURY FEEDBACK: PHASE 2 CIN DUMMY FIELD -->
-          <label for="cin">CIN Number (If you have it)</label>
-          <div style="display: flex; gap: 8px; margin-bottom: 5px;">
-            <input type="text" id="cin" name="cin" placeholder="e.g. L12345MH2023PTC123456"
-              style="flex: 1; margin-bottom: 0;">
-            <button type="button" disabled title="Will use MCA API in Phase 2"
-              style="white-space: nowrap; background: #e0e0e0; color: #888; border: 1px solid #ccc; cursor: not-allowed; border-radius: 4px; padding: 0 12px;">Auto-Fetch Data</button>
-          </div>
-          <div style="font-size: 0.85em; color: #666; margin-bottom: 15px;">Informal sector applicants can leave this
-            blank.</div>
+          
 
           <label for="state">State</label>
           <select id="state" name="state" required>
@@ -175,6 +164,28 @@
       </form>
     </div>
   </div>
-</body>
 
+  <!--
+    RESERVED FOR BACKEND INTEGRATION (intentionally left empty/commented):
+    When you're ready to connect this to the FastAPI backend from earlier
+    without a full page reload, a <script> tag would go here containing
+    something like:
+
+      document.getElementById('entrepreneur-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const payload = Object.fromEntries(formData.entries());
+        const response = await fetch('/api/recommend', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        // then display result.reason, result.name etc. on the page
+      });
+
+    Left out here since this file is HTML/CSS only, per your request.
+  -->
+
+</body>
 </html>

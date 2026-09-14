@@ -29,9 +29,7 @@ INCOME_BRACKET_FLOOR = {
     "above_12L":  1_200_001,
 }
 
-# ─────────────────────────────────────────────────────────────────
 # DB HELPERS
-# ─────────────────────────────────────────────────────────────────
 
 @contextmanager
 def get_db():
@@ -63,10 +61,6 @@ def init_db():
             )
         """)
 
-        # CREATE TABLE IF NOT EXISTS does nothing if the table already exists
-        # with an OLDER schema (e.g. from a previous version of this app that
-        # didn't have marginalization_score). Check for and add any missing
-        # columns so upgrading never requires deleting your existing data.
         existing_cols = {
             row["name"] for row in conn.execute("PRAGMA table_info(submissions)")
         }
@@ -85,9 +79,7 @@ def init_db():
             print("[WARNING] No 'schemes' table found. Run database_data_making.py first.")
 
 
-# ─────────────────────────────────────────────────────────────────
 # ML SCORING
-# ─────────────────────────────────────────────────────────────────
 
 def predict_score(profile):
     gender_map   = {"female": 1, "male": 0, "other": 1, "prefer_not_to_say": 0}
@@ -112,9 +104,7 @@ def predict_score(profile):
     return round(float(model.predict(X)[0]), 2)
 
 
-# ─────────────────────────────────────────────────────────────────
 # SUBMISSION HELPERS
-# ─────────────────────────────────────────────────────────────────
 
 def save_submission(profile, score):
     with get_db() as conn:
@@ -211,7 +201,7 @@ def _location_bonus(scheme_location, profile_location):
     sl = str(scheme_location or "").strip().lower()
     pl = str(profile_location or "").strip().lower()
     if sl in ("", "urban", "both", "all", "all india", "any"):
-        return 0  # not a meaningful rural/urban restriction in this dataset
+        return 0
     return 5 if pl == sl else 0
 
 
@@ -219,8 +209,8 @@ def _state_bonus(scheme_state, profile_state):
     ss = str(scheme_state or "").strip().lower()
     ps = str(profile_state or "").strip().lower()
     if ss in ("", "all india", "all", "any", "both"):
-        return 3  # nationwide scheme -- small baseline bonus, applies to everyone
-    return 8 if ps == ss else 0  # state-specific scheme the applicant's state matches
+        return 3
+    return 8 if ps == ss else 0  
 
 
 def _business_bonus(scheme_biz, profile_biz):
@@ -270,8 +260,6 @@ def get_matching_schemes(profile, entrepreneur_score, limit=10):
         score_diff = abs(entrepreneur_score - scheme_score)
         base = max(0.0, 100.0 - score_diff)
 
-        # Bonuses are kept in the calculation so that exact matches still bubble 
-        # to the top of the eligible list.
         bonus = (
             _gender_bonus(row["gender"], profile.get("gender"))
             + _caste_bonus(row["caste"], profile.get("caste"))
@@ -310,9 +298,7 @@ def get_scheme_by_id(scheme_id):
         return dict(row) if row else None
 
 
-# ─────────────────────────────────────────────────────────────────
 # GROQ ELABORATION
-# ─────────────────────────────────────────────────────────────────
 
 def build_context(scheme, profile=None):
     lines = [
@@ -380,9 +366,8 @@ def elaborate(context):
     return response.choices[0].message.content
 
 
-# ─────────────────────────────────────────────────────────────────
+
 # FLASK ROUTES
-# ─────────────────────────────────────────────────────────────────
 
 app = Flask(__name__)
 init_db()
@@ -468,7 +453,7 @@ def scheme_detail(scheme_id):
     return render_template(
         "scheme_detail.html",
         scheme=scheme,
-        elaboration=elaboration_html,  # Pass the parsed HTML to the template
+        elaboration=elaboration_html,
         profile=profile,
     )
 
